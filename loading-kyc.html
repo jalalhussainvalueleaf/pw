@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Loading KYC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="global.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="max-w-md mx-auto bg-primary rounded-lg shadow-md overflow-hidden h-screen flex flex-col justify-between">
+      <div class="flex items-center justify-between">
+        <div class="w-1/6">
+          <button class="px-2 left-0"> 
+            <img src="arrow.svg" alt="Company Logo" class="w-auto"/>
+          </button>
+        </div>
+        <div class="w-1/2 pt-4">
+          <img src="logPW.png" alt="Company Logo" class="w-auto h-14"/>
+        </div>
+        <div class="w-12"></div>
+    </div>
+      <div>
+          <div class="flex justify-center items-center mb-20 mt-20 ">
+              <div class="animate-spin rounded-full h-24 w-24 border-t-4 border-blue-500"></div>
+          </div>
+          <!-- Countdown Timer -->
+          <div class="flex items-center justify-center flex-col mb-20">
+            <h2 class="text-xl font-semibold text-center text-[#0069B8]">Please Wait, We are Fetching <Br>your KYC Document</h2>
+            <p class="text-center text-gray-400 text-sm">Estimated time 40 secs</p>
+          </div>
+        </div>
+        <div class="flex items-center justify-center content mt-6 h-auto bottom-0">
+        </div>
+    </div>
+  </body>
+</html>

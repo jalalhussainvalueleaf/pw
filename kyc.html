@@ -1,0 +1,123 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Verify Your KYC
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .toggle-switch {
+            position: relative;
+            width: 40px;
+            height: 20px;
+            display: inline-block;
+        }
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 12px;
+            width: 12px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #0069B8;
+        }
+        input:checked + .slider:before {
+            transform: translateX(20px);
+        }
+  </style>
+ </head>
+ <body class="bg-white flex items-center justify-center min-h-screen">
+  <div class="w-full max-w-md p-4">
+   <div class="bg-[#0069B8] text-white text-center py-6 rounded-t-lg relative" style="border-radius: 0px 0px 30px 30px;">
+    <div class="absolute left-4 top-4">
+     <i class="fas fa-arrow-left">
+     </i>
+    </div>
+    <div class="flex flex-col items-center">
+     <img alt="Poonawalla Fincorp Logo" class="h-auto w-50 mb-2" height="30" src="asset/images/logo.png" />
+    </div>
+    <h1 class="text-xl font-bold mt-2">
+     Verify Your KYC <br> With DigiLocker
+    </h1>
+   </div>
+   <div class="bg-white p-6 rounded-b-lg shadow-lg">
+    <p class="text-[#0069B8] text-center font-medium mb-4">
+     Ensure Your Aadhaar Is Linked With DigiLocker Before Proceeding.
+    </p>
+    <p class="text-[#000] font-medium mb-2">
+     Please Note
+    </p>
+    <p class="text-gray-600 mb-4">
+     Select Aadhaar Card And Grant Permission To Continue
+    </p>
+    <div class="space-y-4 mb-4">
+     <div class="flex items-center justify-between bg-gray-100 p-3 rounded-lg">
+      <span class="text-gray-700">
+       Aadhar Card
+      </span>
+      <label class="toggle-switch">
+       <input checked="" type="checkbox"/>
+       <span class="slider">
+       </span>
+      </label>
+     </div>
+     <div class="flex items-center justify-between bg-gray-100 p-3 rounded-lg">
+      <span class="text-gray-700">
+       PAN Card
+      </span>
+      <label class="toggle-switch">
+       <input checked="" type="checkbox"/>
+       <span class="slider">
+       </span>
+      </label>
+     </div>
+    </div>
+    <div class="flex items-start mb-4">
+     <input class="form-checkbox text-blue-600 mt-1" type="checkbox"/>
+     <p class="text-gray-600 ml-2">
+      By proceeding, you agree to Poonawalla Fincorp's and Buddy Loan's
+      <a class="text-blue-600 underline" href="#">
+       Terms &amp; Conditions
+      </a>
+      and
+      <a class="text-blue-600 underline" href="#">
+       Privacy Policy
+      </a>
+      .
+     </p>
+    </div>
+    <button class="w-full bg-[#0069B8] text-white py-3 rounded-lg font-bold">
+     Continue
+    </button>
+   </div>
+  </div>
+ </body>
+</html>
