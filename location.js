@@ -56,7 +56,7 @@ denyLocationBtn.addEventListener("click", () => {
 
 function getLocation() {
   resultElement.innerHTML =
-    "<span class='text-[#0069B8] italic'>Fetching location...</span>";
+    "<span class='text-[#0069B8] italic'>Please Wait...</span>";
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
   } else {
@@ -113,16 +113,24 @@ function sendDataToServer(latitude, longitude, ip) {
       stopTimer();
       checkDone.classList.remove("hidden");
       timerOff.classList.add("hidden");
-      resultElement.innerHTML = `
-                <p><strong>IP Address:</strong> ${result.ip || "N/A"}</p>
-                <p><strong>Latitude:</strong> ${
-                  result.latitude || "N/A"
-                }, <strong>Longitude:</strong> ${result.longitude || "N/A"}</p>
-                <p><strong>City:</strong> ${result.city || "N/A"}</p>
-                <p><strong>Region:</strong> ${result.region || "N/A"}</p>
-                <p><strong>Country:</strong> ${result.country || "N/A"}</p>
-                <p><strong>Location:</strong> ${result.location || "N/A"}</p>
-            `;
+      // const newWindow = window.open("address.html");
+      history.pushState({lat: latitude, long: longitude}, "", "address.html");
+      window.location.href = "address.html";
+      setTimeout(() => {
+        // newWindow.postMessage({ lat: latitude, long: longitude }, "*");
+        window.location.href = "address.html";
+      }, 1000);
+
+      // resultElement.innerHTML = `
+      //           <p><strong>IP Address:</strong> ${result.ip || "N/A"}</p>
+      //           <p><strong>Latitude:</strong> ${
+      //             result.latitude || "N/A"
+      //           }, <strong>Longitude:</strong> ${result.longitude || "N/A"}</p>
+      //           <p><strong>City:</strong> ${result.city || "N/A"}</p>
+      //           <p><strong>Region:</strong> ${result.region || "N/A"}</p>
+      //           <p><strong>Country:</strong> ${result.country || "N/A"}</p>
+      //           <p><strong>Location:</strong> ${result.location || "N/A"}</p>
+      //       `;
     })
     .catch((error) => {
       resultElement.innerHTML =

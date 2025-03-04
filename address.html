@@ -6,14 +6,14 @@
   <title>Address Page</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap" rel="stylesheet">
   <script src="pincode.js"></script>
-  <style>
-    body { font-family: "Poppins", sans-serif; }
-  </style>
+  <link href="global.css" rel="stylesheet">
+  <script>
+ 
+  </script>
 </head>
-<body class="bg-gray-100">
-  <div class="max-w-md mx-auto bg-[#F7FAFE] rounded-lg shadow-md overflow-hidden">
+<body>
+  <div class="max-w-md mx-auto bg-primary  shadow-md overflow-hidden">
     <div class="bg-[#0069B8] p-6 text-white rounded-b-[30px]">
       <div class="flex items-center justify-center">
         <img src="pwLogo.svg" alt="logo">
@@ -46,14 +46,20 @@
         </div>
         <div class="mb-4">
           <label class="inline-flex items-start">
-            <input type="checkbox" id="acknowledge" class="form-checkbox h-5 w-5 text-blue-600">
-            <span class="ml-2 text-gray-700 text-sm">I acknowledge that my information is secure & will comply with the <a href="#" class="text-blue-500">Terms & Conditions</a> and <a href="#" class="text-blue-500">Privacy Policy</a>.</span>
+            <input type="checkbox" id="acknowledge" class="h-5 w-5 text-blue-600">
+            <span class="ml-2 text-gray-700 text-sm" id="acknowledgeText">
+              I acknowledge that my information is secure & will comply with the 
+              <a href="#" class="text-blue-500">Terms & Conditions</a> and 
+              <a href="#" class="text-blue-500">Privacy Policy</a>.
+            </span>
           </label>
         </div>
+        
+        
         <div class="mb-4">
           <label class="inline-flex items-start">
-            <input type="checkbox" id="terms" class="form-checkbox h-5 w-5 text-blue-600">
-            <span class="ml-2 text-gray-700 text-sm">By clicking on proceed, you agree to Poonawalla Fincorp <a href="#" class="text-blue-500">Terms & Conditions</a> and <a href="#" class="text-blue-500">Privacy Policy</a> & agree to Buddy Loan's Credit Report <a href="#" class="text-blue-500">Terms of Use</a>.</span>
+            <input type="checkbox" id="terms" class="h-5 w-5 text-blue-600 outline-red-500 outline-2">
+            <span class="ml-2 text-gray-700 text-sm" id="termsText">By clicking on proceed, you agree to Poonawalla Fincorp <a href="#" class="text-blue-500">Terms & Conditions</a> and <a href="#" class="text-blue-500">Privacy Policy</a> & agree to Buddy Loan's Credit Report <a href="#" class="text-blue-500">Terms of Use</a>.</span>
           </label>
         </div>
         <button type="submit" class="w-full bg-gradient-to-b from-[#56AEFF] to-[#00509B] text-white py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Proceed</button>
