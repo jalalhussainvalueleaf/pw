@@ -1,8 +1,29 @@
 document.addEventListener("DOMContentLoaded", function () {
+  let lat = null;
+  let long = null;
+  let userid = "USER123"; // Replace with the actual user ID
+
+  // Retrieve lat-long from history state
+  const state = history.state;
+  if (state && state.lat && state.long) {
+    lat = state.lat;
+    long = state.long;
+    console.log("Latitude:", lat);
+    console.log("Longitude:", long);
+  } else {
+    console.log("No location data found!");
+  }
+
   const pincodeInput = document.getElementById("pincode");
   const cityStateInput = document.getElementById("cityState");
   const pincodeError = document.getElementById("pincodeError");
   const form = document.getElementById("addressForm");
+  const acknowledgeCheckbox = document.getElementById("acknowledge");
+  const termsCheckbox = document.getElementById("terms");
+  const acknowledgeText = document.getElementById("acknowledgeText");
+  const termsText = document.getElementById("termsText");
+  const houseInput = document.getElementById("house");
+  const localityInput = document.getElementById("locality");
 
   pincodeInput.addEventListener("input", function () {
     let pincode = pincodeInput.value.replace(/\D/g, ""); // Only numbers
@@ -26,6 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((response) => response.json())
       .then((data) => {
         if (data?.data?.city && data?.data?.state) {
+          console.log(data);
           cityStateInput.value = `${data.data.city}, ${data.data.state}`;
           pincodeError.classList.add("hidden");
         } else {
@@ -56,12 +78,18 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    if (
-      !document.getElementById("acknowledge").checked ||
-      !document.getElementById("terms").checked
-    ) {
-      alert("Please agree to the terms and acknowledge the privacy policy.");
+    if (!acknowledgeCheckbox.checked) {
+      acknowledgeText.classList.add("text-red-500");
       isValid = false;
+    } else {
+      acknowledgeText.classList.remove("text-red-500");
+    }
+
+    if (!termsCheckbox.checked) {
+      termsText.classList.add("text-red-500");
+      isValid = false;
+    } else {
+      termsText.classList.remove("text-red-500");
     }
 
     if (isValid) {
@@ -70,22 +98,28 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function submitForm() {
-    // const payload = {
-    //   pincode: pincodeInput.value,
-    //   house: document.getElementById("house").value.trim(),
-    //   locality: document.getElementById("locality").value.trim(),
-    //   landmark: document.getElementById("landmark").value.trim() || null,
-    //   cityState: cityStateInput.value,
-    //   acknowledge: document.getElementById("acknowledge").checked,
-    //   terms: document.getElementById("terms").checked,
-    // };
+    if (!lat || !long) {
+      console.error("Latitude and Longitude are missing!");
+      alert("Location data is missing. Please try again.");
+      return;
+    }
+
+    console.log("Submitting with Latitude:", lat);
+    console.log("Submitting with Longitude:", long);
+
+    const address = `${houseInput.value}, ${localityInput.value}, ${cityStateInput.value}, ${pincodeInput.value}`;
+    const consent =
+      acknowledgeCheckbox.checked && termsCheckbox.checked ? "2" : "";
+
     const payload = {
-      userid: "",
-      latitude: "",
-      longitude: "",
-      address: "",
-      consent: "",
+      userid: userid,
+      latitude: lat,
+      longitude: long,
+      address: address,
+      consent: consent,
     };
+
+    console.log("Payload:", payload);
 
     fetch("https://prod.utils.buddyloan.in/poonawalla/poonawalla_address.php", {
       method: "POST",
@@ -96,12 +130,12 @@ document.addEventListener("DOMContentLoaded", function () {
     })
       .then((response) => response.json())
       .then((data) => {
-        alert("Form Submitted Successfully!");
         console.log("Server Response:", data);
+        alert("Form Submitted Successfully!");
       })
       .catch((error) => {
-        alert("Error submitting form. Please try again.");
         console.error("Submission Error:", error);
+        alert("Error submitting form. Please try again.");
       });
   }
 });
