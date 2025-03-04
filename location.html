@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KYC Verification</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap" rel="stylesheet">
+  
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <script>
+    
+  </script>
+  
+  <style>
+    body { font-family: "Poppins", sans-serif; }
+  </style>
+</head>
+<body class="bg-gray-100 flex justify-center items-center h-screen relative">
+  <!-- Black Overlay (Initially Hidden) -->
+  <div class="max-w-md mx-auto bg-white shadow-md rounded-md space-y-4 relative z-20 p-6">
+    <!-- Logo -->
+    <div class="flex items-center justify-center w-full p-4">
+      <img src="logoPW.png" alt="Company Logo" class="w-auto h-12"/>
+    </div>
+
+    <!-- Camera Mask (Before Permission) -->
+    <div class="flex flex-col items-center justify-center p-6 space-y-6">
+      <div class="flex items-center justify-center flex-col">
+        <h2 class="text-xl font-semibold text-center">Verifying Your Details</h2>
+        <div id="timerCount" class="flex items-center justify-center">
+        <p class="text-center text-gray-400 text-sm">
+          This could take up to 15 seconds.
+        </p>
+      </div>
+      <div class="">
+        <div id="checkDone" class="hidden">
+        <lottie-player 
+        src="done.json"
+        background="transparent"
+        speed="1"
+        style="width: 120px; height: 120px;"
+        autoplay>
+      </lottie-player>
+    </div>
+      <div class="ring-2 ring-gray-200 shadow-md rounded-full size-20 flex items-center justify-center flex-col" id="timerOff">
+        <span class="text-4xl font-semibold text-[#0069B8]" id="countdown">1</span>
+        <small class="text-[#0069B8]">sec</small>
+    </div>
+      </div>
+    </div>
+    </div>
+
+    <!-- Location Popup (Initially Hidden) -->
+    <div id="locationModal" class="fixed inset-0 flex justify-center items-end hidden bottom-4">
+        <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden"></div>
+      <div class="bg-white p-6 rounded-lg shadow-lg z-50 w-80">
+        <div class="flex flex-col items-center mb-4">
+          <i class="fas fa-map-marker-alt text-4xl mb-2 text-[#0069B8]"></i>
+          <p class="text-center text-gray-400">
+            Allow Buddy Loan to access this device’s precise location?
+          </p>
+          <img src="map.svg" alt="Map" class="w-auto h-32"/>
+        </div>
+        <div class="flex flex-col space-y-4">
+          <button id="allowLocation" class="bg-[#0069B8] text-white py-2 px-4 rounded">While using the app</button>
+          <button id="denyLocation" class="bg-gray-300 text-gray-800 py-2 px-4 rounded">Don’t allow</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Button to Trigger Location Modal -->
+    <div class="text-center">
+            <img src="location.svg" alt="Company Logo" class="w-full h-full"/>
+      <!-- <button id="getLocationBtn" class="bg-[#0069B8] text-white py-2 px-4 rounded">Get Location</button> -->
+    </div>
+
+    <div id="result" class="text-center text-gray-800 mt-4"></div>
+  </div>
+
+<script src="location.js"></script>
+</body>
+</html>

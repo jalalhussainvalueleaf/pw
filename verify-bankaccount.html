@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bank Account</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+    body { 
+        font-family: "Poppins", sans-serif; 
+    }
+
+    .loader {
+        width: 220px;
+        height: 18px;
+        border: 1px solid #0069B8; /* Border with desired color */
+        border-radius: 20px;
+        background:
+        linear-gradient(#0069B8 0 0) 0/0% no-repeat
+        white;
+        animation: l2 2s infinite steps(10);
+    }
+    
+    @keyframes l2 {
+        100% {background-size:110%}
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <div class="max-w-md mx-auto bg-[#F7FAFE] rounded-lg shadow-md overflow-hidden mt-10">
+    <div class="bg-[#0069B8] text-white text-center py-6 rounded-t-lg relative" style="border-radius: 0px 0px 30px 30px;">
+        <div class="absolute left-4 top-4">
+         <i class="fas fa-arrow-left">
+         </i>
+        </div>
+        <div class="flex flex-col items-center">
+         <img alt="Poonawalla Fincorp Logo" class="mt-3 h-auto w-50 mb-2" height="30" src="asset/images/logo.png" />
+        </div>
+        <h2 class="text-3xl font-regular mt-2 pt-4">Add Bank Account To
+            <br>Deduct Monthly EMI</h2>    
+    </div>
+    <div class="p-6">
+        <p class="text-center font-medium text-[#0069B8]">Make sure the bank account has <br> Internet Banking or Debit Card</p>
+        <div class="mb-4 mt-10">
+            <label class="block text-500 mb-2 text-[#0069B8]">Select Your Bank</label>
+            <div class="relative">
+                <select class="w-full p-3 border border-blue-400 rounded-lg appearance-none">
+                    <option>ICICI Bank</option>
+                    <option>Canara Bank</option>
+                </select>
+                <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                    <i class="fas fa-chevron-down text-gray-400"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-[#FFFFFF] p-0 text-white rounded-t-[30px] pb-[30px]">
+        <div class="flex items-center justify-center content">
+           <img src="asset/images/bank.png" alt="Bank logo" class="mt-8 mb-6">
+        </div>
+        <p class="text-center font-semibold text-2xl text-[#0069B8]">We are verifying your Bank <br>
+            Account by sending ₹1</p>
+        <div class="loader mx-auto mt-6"></div>
+    </div>
+  </div>
+</body>
+</html>
