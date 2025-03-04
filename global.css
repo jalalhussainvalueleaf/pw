@@ -8,3 +8,17 @@ background-color: oklch(0.967 0.003 264.542);
  .text-primary{
     color:#0069B8;
  }
+ .loader {
+   width: 220px;
+   height: 18px;
+   border: 1px solid #0069B8; /* Border with desired color */
+   border-radius: 20px;
+   background:
+   linear-gradient(#0069B8 0 0) 0/0% no-repeat
+   white;
+   animation: l2 2s infinite steps(10);
+}
+
+@keyframes l2 {
+   100% {background-size:110%}
+}
