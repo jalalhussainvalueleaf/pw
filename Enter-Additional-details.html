@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Additional details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="global.css" rel="stylesheet">
+  </head>
+<body>
+  <div class="max-w-md mx-auto bg-[#F7FAFE] rounded-b-lg shadow-md overflow-hidden h-screen">
+      <div class="bg-[#0069B8] text-white rounded-b-[30px]  justify-start items-start">
+        <div class="flex items-center justify-between">
+          <div class="w-1/6">
+            <button class="px-2 left-0"> 
+              <img src="arrow.svg" alt="Company Logo" class="w-auto brightness-0 invert"/>
+            </button>
+          </div>
+          <div class="w-1/2 pt-4">
+            <img src="logoHeader.png" alt="Company Logo" class="w-auto h-14"/>
+          </div>
+          <div class="w-12"></div>
+        </div>
+        <div>
+          <h2 class="text-3xl font-regular mt-2 pt-4 pb-6 flex items-center justify-center">Enter Additional details</h2>
+        </div>
+      </div>
+      <div class="p-6">
+          <div class="flex items-center bg-[#CDEFFF] p-1 justify-center rounded-lg w-[65%] ml-[65px]">
+              <img src="icon.png" class="w-5 h-5"><span class="ml-2 text-[#2568EF] text-sm">KYC successfully completed</span>
+          </div>
+          <div>
+            <h2 class="text-[18px] font-regular text-[#0069B8] mt-6 ml-[40px]">Help us with your additional details</h2>
+          </div>
+          <div class="py-4 px-10">
+            <form>
+              <div class="mb-4 py-2">
+                <label class="block text-[#0069B8] mb-2" for="company-name">Enter Company Name</label>
+                <div class="relative">
+                  <select id="company-name" class="w-full p-4 py-2 border border-gray-300 rounded-lg text-gray-400 appearance-none">
+                    <option>Reliance Industries Limited</option>
+                    <option>Tata Consultancy Services</option>
+                    <option>ValueLeaf</option>
+                    <option>Wipro</option>
+                  </select>
+                  <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                    <i class="fas fa-chevron-down text-gray-400"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-4 py-2">
+                <label class="block text-[#0069B8] mb-2" for="marital-status">Select Your Marital Status</label>
+                <div class="relative">
+                  <select id="marital-status" class="w-full p-4 py-2 rounded-lg appearance-none border border-[#0069B8] text-gray-400">
+                    <option>Married</option>
+                    <option>Single</option>
+                    <option>Divorced</option>
+                    <option>Widowed</option>
+                  </select>
+                  <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                    <i class="fas fa-chevron-down text-gray-400"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-4 py-2">
+                <label class="block text-[#0069B8] mb-2" for="father-name">Enter Your Father’s Name</label>
+                <input type="text" id="father-name" placeholder="Father’s Name" class="w-full px-4 py-2 rounded-lg border border-[#0069B8]">
+              </div>
+            </form>
+            <button class="mt-20 w-full p-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 bg-gradient-to-b from-[#56AEFF] to-[#00509B]">Proceed</button>
+          </div>
+      </div>
+  </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bank Account</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+    body { 
+        font-family: "Poppins", sans-serif; 
+    }
+  </style>
+</head>
+<body>
+  <div class="max-w-md mx-auto bg-[#F7FAFE] rounded-b-lg shadow-md overflow-hidden h-screen">
+    <div class="bg-[#0069B8] text-white rounded-b-[30px]  justify-start items-start">
+          <div class="flex items-center justify-between">
+            <div class="w-1/6">
+              <button class="px-2 left-0"> 
+                <img src="asset/images/arrow.svg" alt="Company Logo" class="w-auto brightness-0 invert"/>
+              </button>
+            </div>
+            <div class="w-1/2 pt-4">
+              <img src="asset/images/logoHeader.png" alt="Company Logo" class="w-auto h-14"/>
+            </div>
+            <div class="w-12"></div>
+          </div>
+        <div>
+          <h2 class="text-3xl font-regular mt-2 pt-4 pb-6 flex items-center justify-center">Enter Additional details</h2>
+        </div>
+        </div>
+     <div class="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
+    <div class="flex items-center mb-4 bg-[#CDEFFF] w-60 p-1 justify-center">
+        <img src="image 7295.png">
+        <span class="ml-2 text-[#2568EF]  font-medium">KYC successfully completed</span>
+    </div>
+    <h2 class="text-[16px] font-semibold text-[#0069B8] mb-4 ">Help us with your additional details</h2>
+    <form>
+        <div class="mb-4">
+            <label class="block text-blue-700 mb-2" for="company-name">Enter Company Name</label>
+            <input list="companies" id="company-name" placeholder="Eg. Reliance Industries Limited" class="w-full px-4 py-2 border border-gray-300 rounded-lg bg-gray-100 text-gray-500">
+            <datalist id="companies">
+                <option value="Reliance Industries Limited">
+                <option value="Tata Consultancy Services">
+                <option value="Infosys">
+                <option value="Wipro">
+                <option value="HCL Technologies">
+            </datalist>
+        </div>
+        <div class="mb-4">
+            <label class="block text-blue-700 mb-2" for="marital-status">Select Your Marital Status</label>
+            <select id="marital-status" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+                <option>Married</option>
+                <option>Single</option>
+                <option>Divorced</option>
+                <option>Widowed</option>
+            </select>
+        </div>
+        <div class="mb-4">
+            <label class="block text-blue-700 mb-2" for="father-name">Enter Your Father’s Name</label>
+            <input type="text" id="father-name" placeholder="Father’s Name" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+        </div>
+    </form>
+
+        <button class="mt-5 w-full p-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 bg-gradient-to-b from-[#56AEFF] to-[#00509B]        ">Confirm</button>
+    </div>
+  </div>
+</div>
+</body>
+</html> -->
