@@ -1,3 +1,5 @@
+let AccpetButton = null;
+const state = history.state;
 const overlay = document.getElementById("overlay");
 const locationModal = document.getElementById("locationModal");
 const allowLocationBtn = document.getElementById("allowLocation");
@@ -39,6 +41,16 @@ function stopTimer() {
 function closeModal() {
   locationModal.classList.add("hidden");
   overlay.classList.add("hidden");
+}
+
+if (state && state.location) {
+  AcceptState = state.location;
+  console.log("AcceptState:", AcceptState);
+  if (AcceptState) {
+    closeModal();
+    startTimer();
+    getLocation();
+  }
 }
 
 allowLocationBtn.addEventListener("click", () => {

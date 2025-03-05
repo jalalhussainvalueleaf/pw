@@ -2,18 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
   let lat = null;
   let long = null;
   let userid = "USER123"; // Replace with the actual user ID
-
   // Retrieve lat-long from history state
   const state = history.state;
-  if (state && state.lat && state.long) {
-    lat = state.lat;
-    long = state.long;
-    console.log("Latitude:", lat);
-    console.log("Longitude:", long);
-  } else {
-    console.log("No location data found!");
-  }
-
   const pincodeInput = document.getElementById("pincode");
   const cityStateInput = document.getElementById("cityState");
   const pincodeError = document.getElementById("pincodeError");
@@ -24,6 +14,40 @@ document.addEventListener("DOMContentLoaded", function () {
   const termsText = document.getElementById("termsText");
   const houseInput = document.getElementById("house");
   const localityInput = document.getElementById("locality");
+  const landmarkInput = document.getElementById("landmark");
+
+  const locationModal = document.getElementById("locationModal");
+  const overlay = document.getElementById("overlay");
+  const allowLocationBtn = document.getElementById("allowLocation");
+  const denyLocationBtn = document.getElementById("denyLocation");
+
+  if (state && state.lat && state.long) {
+    lat = state.lat;
+    long = state.long;
+    console.log("Latitude:", lat);
+    console.log("Longitude:", long);
+    locationModal.classList.add("hidden");
+    overlay.classList.add("hidden");
+  } else {
+    console.log("No location data found!");
+    locationModal.classList.remove("hidden");
+    overlay.classList.remove("hidden");
+    // window.location.href = "location.html";
+    // setTimeout(() => {
+    //   window.location.href = "location.html";
+    // }, 1000);
+  }
+
+  allowLocationBtn.addEventListener("click", function () {
+    console.log("allowLocationBtn clicked");
+    history.pushState({location: true}, "", "location.html");
+    window.location.href = "location.html";
+  });
+
+  denyLocationBtn.addEventListener("click", function () {
+    locationModal.classList.add("hidden");
+    overlay.classList.add("hidden");
+  });
 
   pincodeInput.addEventListener("input", function () {
     let pincode = pincodeInput.value.replace(/\D/g, ""); // Only numbers
