@@ -6,7 +6,7 @@
     <title>Home page</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-    <link href="global.css" rel="stylesheet">
+    <link href="assets/css/global.css" rel="stylesheet">
 </head>
 <body>
     <div class="max-w-md mx-auto bg-[#F7FAFE] rounded-b-lg shadow-md overflow-hidden">
@@ -14,7 +14,7 @@
             <div class="flex items-center justify-between">
                 <div class="w-1/6">
                   <button class="px-2 left-0"> 
-                    <img src="arrow.svg" alt="Company Logo" class="w-auto brightness-0 invert"/>
+                    <img src="assets/resources/arrow.svg" alt="arrow Logo" class="w-auto brightness-0 invert"/>
                   </button>
                 </div>
                 <div class="w-1/2 pt-4">
@@ -35,9 +35,9 @@
     <script>
         // Sample Data Array
         const cardData = [
-        { amount: "₹1,00,000", roi: "12%", tenure: "1Y", fee: "2%", insurance: "1Y", logo:"logoHeader.png",color:"#2D3575"},
-        { amount: "₹2,00,000", roi: "10%", tenure: "2Y", fee: "1.5%", insurance: "1.5Y", logo:"logoHeader.png",color:"#0B8C4C"},
-        { amount: "₹3,00,000", roi: "8%", tenure: "3Y", fee: "1%", insurance: "2Y", logo:"logoHeader.png",color:"#014C92"}
+        { amount: "₹1,00,000", roi: "12%", tenure: "1Y", fee: "2%", insurance: "1Y", logo:"assets/resources/logoHeader.png",color:"#2D3575"},
+        { amount: "₹2,00,000", roi: "10%", tenure: "2Y", fee: "1.5%", insurance: "1.5Y", logo:"assets/resources/logoHeader.png",color:"#0B8C4C"},
+        { amount: "₹3,00,000", roi: "8%", tenure: "3Y", fee: "1%", insurance: "2Y", logo:"assets/resources/logoHeader.png",color:"#014C92"}
     ];
 
         // Select the card container
@@ -58,7 +58,7 @@
                 </div>
 
                 <!-- Card Content -->
-                <div class="grid grid-cols-2 gap-4 p-4 bg-[url('cardbg.png')] bg-cover bg-center bg-no-repeat border rounded-b-5xl">
+                <div class="grid grid-cols-2 gap-4 p-4 bg-[url('assets/resources/cardbg.png')] bg-cover bg-center bg-no-repeat border rounded-b-5xl">
                     <div class="text-gray-700">
                         <p class="text-sm text-gray-600">Loan Amount</p>
                         <h3 class="text-[33px] font-bold" style="color: ${data.color};">${data.amount}</h3>

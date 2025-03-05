@@ -9,18 +9,14 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-
-  
-  <style>
-    body { font-family: "Poppins", sans-serif; }
-  </style>
+  <link href="assets/css/global.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100 flex justify-center items-center h-screen relative">
   <!-- Black Overlay (Initially Hidden) -->
   <div class="max-w-md mx-auto bg-white shadow-md rounded-md space-y-4 relative z-20 p-6">
     <!-- Logo -->
     <div class="flex items-center justify-center w-full p-4">
-      <img src="logoPW.png" alt="Company Logo" class="w-auto h-12"/>
+      <img src="assets/resources/logPW.png" alt="Company Logo" class="w-auto h-12"/>
     </div>
 
     <!-- Camera Mask (Before Permission) -->
@@ -59,7 +55,7 @@
           <p class="text-center text-gray-400">
             Allow Buddy Loan to access this device’s precise location?
           </p>
-          <img src="map.svg" alt="Map" class="w-auto h-32"/>
+          <img src="assets/resources/map.svg" alt="Map" class="w-auto h-32"/>
         </div>
         <div class="flex flex-col space-y-4">
           <button id="allowLocation" class="bg-[#0069B8] text-white py-2 px-4 rounded">While using the app</button>
@@ -70,7 +66,7 @@
     
     <!-- Button to Trigger Location Modal -->
     <div class="text-center">
-            <img src="location.svg" alt="Company Logo" class="w-full h-full"/>
+            <img src="assets/resources/location.svg" alt="location Logo" class="w-full h-full"/>
       <!-- <button id="getLocationBtn" class="bg-[#0069B8] text-white py-2 px-4 rounded">Get Location</button> -->
     </div>
 
