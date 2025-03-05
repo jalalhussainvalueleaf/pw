@@ -1,48 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Loan Application</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <style>
-    body { font-family: "Poppins", sans-serif; }
-    .hidden { display: none; }
-  </style>
-</head>
-<body class="bg-gray-100">
-  <div class="max-w-md mx-auto bg-[#F7FAFE] rounded-lg shadow-md overflow-hidden mt-10">
-    <div class="bg-[#0069B8] p-6 text-white text-center rounded-b-[30px]">
-      <img src=""/>
-      <h2 class="text-3xl font-regular mt-2">Enter Required<br>Loan Amount (₹)</h2>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Loan Application</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="global.css" rel="stylesheet">
+  </head>
+<body>
+  <div class="max-w-md mx-auto bg-[#F7FAFE] rounded-b-lg shadow-md overflow-hidden">
+    <div class="bg-[#0069B8] text-white rounded-b-[30px]  justify-start items-start">
+      <div class="flex items-center justify-between">
+        <div class="w-1/6">
+          <button class="px-2 left-0"> 
+            <img src="arrow.svg" alt="Company Logo" class="w-auto brightness-0 invert"/>
+          </button>
+        </div>
+        <div class="w-1/2 pt-4">
+          <img src="logoHeader.png" alt="Company Logo" class="w-auto h-14"/>
+        </div>
+        <div class="w-12"></div>
+      </div>
+      <div>
+        <h2 class="text-3xl font-regular mt-2 pt-4 pb-6 flex items-center justify-center">Enter Required<br>Loan Amount (₹)</h2>
+      </div>
     </div>
     <div class="p-6">
       <div class="border shadow-md p-4 rounded-lg text-center bg-white">
         <h3 id="loanAmount" class="text-3xl font-bold text-[#0069B8]">₹2,20,000</h3>
-        <input id="loanSlider" class="w-full text-[#0069B8]" type="range" min="50000" max="500000" value="220000"/>
+        <input id="loanSlider" class="text-[#0069B8] w-full appearance-none h-2 rounded-lg bg-gradient-to-r from-[#56AEFF] to-[#00509B]" type="range" min="50000" max="500000" value="220000"/>
         <div class="flex justify-between text-gray-500 mt-2">
           <span>₹50,000</span><span>₹5,00,000</span>
         </div>
       </div>
       
-      <h3 class="text-[#0069B8] font-regular mt-6">Select EMI and Tenure</h3>
-      <div id="emiOptions" class="bg-blue-50 p-4 rounded-lg mt-2 border"></div>
+      <h3 class="text-[#0069B8] font-[500] mt-6 text-lg">Select EMI and Tenure</h3>
+      <div class="bg-[#FFFFFF] rounded-lg border overflow-hidden">
+        <div class="bg-[#D5F0FF] rounded-t-lg p-4 flex justify-between items-center">
+          <div class="text-center w-1/3">
+              <p class="text-[#0069B8] text-[11.5px] font-semibold">Months</p>
+          </div>
+          <div class="text-center w-1/3">
+              <p class="text-[#0069B8] text-[11.5px] font-semibold">Monthly Interest</p>
+          </div>
+          <div class="text-center w-1/3">
+              <p class="text-[#0069B8] text-[11.5px] font-semibold">EMI per Month</p>
+          </div>
+        </div>
+        <div id="emiOptions" class="p-4"></div>
+      </div>
       
-      <h3 class="text-[#0069B8] font-regular mt-6">Your Loan Details</h3>
-      <div class="bg-gray-100 p-4 rounded-lg mt-2">
+      <h3 class="text-[#0069B8] font-[500] mt-6 text-lg">Your Loan Details</h3>
+      <div class="bg-[#FFFFFF] p-4 rounded-lg mt-2 border">
         <div class="accordion">
-          <div class="flex justify-between items-center p-2 bg-white rounded-lg shadow-md mb-2 cursor-pointer" onclick="toggleAccordion('amountDetails')">
-            <span>Amount You Get</span>
-            <span class="font-semibold">₹2,12,361</span>
-            <i class="fas fa-chevron-down text-gray-500"></i>
+          <div class="flex justify-between items-center p-2 bg-white rounded-lg shadow-md mb-2 cursor-pointer border border-[#0069B8]" onclick="toggleAccordion('amountDetails')">
+            <span class="text-[#0069B8] text-[10px] font-regular">Amount You Get</span>
+            <span class="font-semibold text-[#0069B8] text-[15px] font-regular ml-[30px]">₹2,12,361</span>
+            <i class="fas fa-chevron-down text-[#0069B8] text-[20px] font-regular"></i>
           </div>
           <div id="amountDetails" class="hidden p-2 bg-white rounded-lg shadow-md">
             Detailed amount breakdown goes here...
           </div>
         </div>
+        <div class="accordion">
+          <div class="flex justify-between items-center p-2 bg-white rounded-lg shadow-md mb-2 cursor-pointer border border-[#0069B8]" onclick="toggleAccordion('totalAmount')">
+            <span class="text-[#0069B8] text-[10px] font-regular">Total Amount you Repay</span>
+            <span class="font-semibold text-[#0069B8] text-[15px] font-regular flex items-center">₹2,12,361</span>
+            <i class="fas fa-chevron-down text-[#0069B8] text-[20px] font-regular"></i>
+          </div>
+          <div id="totalAmount" class="hidden p-2 bg-white rounded-lg shadow-md">
+            Detailed amount breakdown goes here...
+          </div>
+        </div>
       </div>
-      <button class="w-full bg-[#0069B8] text-white text-lg font-semibold py-3 rounded-lg mt-6">
+      <div class="bg-[#FFFFFF] p-4 rounded-lg mt-2 border">
+        <p class="text-[11.5px] text-[#0069B8] flex justify-between items-center">*Calculated on Annualised Interest Rate of 26% on Reducing Balance.</p>
+        <p class="text-[11.5px] text-[#0069B8] flex justify-between items-center ml-2">Broken Period Interest Will be Charged as per the EMI Payments.</p>
+      </div>
+      <div class="flex items-start mt-3 ml-1">
+        <input type="checkbox" class="w-4 h-4 text-[#0069B8]  border border-[#0069B8] rounded">
+        <label class="ml-2 text-[12px]">I hereby confirm that the payment of the loan is for personal use</label>
+      </div>
+      <button class="w-full bg-[#0069B8] text-white text-lg font-semibold py-3 rounded-lg mt-6 bg-gradient-to-b from-[#56AEFF] to-[#00509B]">
         Accept & Continue with KYC
       </button>
     </div>
@@ -61,19 +101,24 @@
     function updateLoanAmount() {
       loanAmount.textContent = `₹${parseInt(loanSlider.value).toLocaleString()}`;
     }
-    
     function renderEmiOptions() {
       emiOptionsContainer.innerHTML = "";
       emiOptions.forEach((option, index) => {
         emiOptionsContainer.innerHTML += `
-          <div class="relative  p-2 bg-white rounded-lg shadow-md mb-2 border ${index === 0 ? 'border-[#0069B8]' : ''}">
-            <div class="flex items-center justify-between">
-              <input type="radio" name="tenure" class="form-radio text-[#0069B8]" ${index === 0 ? 'checked' : ''}/>
-              <span class="ml-2">${option.tenure}</span>
-              <div>₹${option.emi.toLocaleString()}</div>
-              <div class="text-[#0069B8] font-semibold">₹${option.total.toLocaleString()}</div>
-            </div>
-            ${index === 0 ? '<div class="absolute bg-[#0069B8] text-white text-xs rounded-lg px-2 py-1 ml-2 -top-3 right-4">Top Pick</div>' : ''}
+          <div class="relative flex items-center justify-between p-2 bg-white rounded-lg shadow-md mb-2 border ${index === 0 ? 'border-[#0069B8]' : ''}">
+              <div class="flex items-center w-1/3">
+                <input type="radio" name="tenure" class="form-radio text-[#0069B8]" ${index === 0 ? 'checked' : ''}/>
+                <span class="ml-2 text-[#0069B8] font-semibold ml-[25px]">${option.tenure}</span>
+              </div>
+              <div class="text-center w-1/3">
+                <p class="text-[#0069B8] font-semibold">₹${option.emi.toLocaleString()}</p>
+              </div>
+              <div class="text-right w-1/3">
+                <p class="text-[#0069B8] font-semibold mr-[25px]">₹${option.total.toLocaleString()}</p>
+              </div>
+                <div class="text-right w-[90px] absolute top-[-14px] right-0">
+                   ${index === 0 ? '<p class="bg-[#0069B8] text-white rounded-[4px] px-2 py-[3px] text-xs font-semibold w-[70px]">Top Pick</p>':''}
+                </div>
           </div>`;
       });
     }
