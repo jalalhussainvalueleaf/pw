@@ -7,6 +7,7 @@
         <script src="https://cdn.tailwindcss.com"></script>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
         <link href="assets/css/global.css" rel="stylesheet">
+        <script src="assets/js/ifsc.js"></script>
     </head>
 <body>
   <div class="max-w-md mx-auto bg-[#F7FAFE] rounded-b-lg shadow-md overflow-hidden h-screen">
@@ -23,65 +24,73 @@
           <div class="w-12"></div>
         </div>
       <div>
-        <h2 class="text-3xl font-regular mt-2 pt-4 pb-6 flex items-center justify-center">Find IFSC for your Bank</h2>
+        <h2 class="text-3xl font-regular mt-2 pt-4 pb-3 flex items-center justify-center">Find IFSC for your Bank</h2>
       </div>
     </div>
-    <div class="p-10">
+    <div class="p-8">
         <p class="text-center font-medium text-[#0069B8]">Select the following details to <br>
             find your IFSC Code</p>
-        <div class="mb-4 mt-10">
+        <div class="mb-8 mt-6">
             <label class="block text-500 mb-2 text-[#0069B8]">Select Your Bank</label>
             <div class="relative">
-                <select class="w-full p-3 border border-blue-400 rounded-lg appearance-none">
-                    <option>ICICI Bank</option>
-                    <option>Canara Bank</option>
+                <select id="bank" class="w-full p-3 border border-blue-400 rounded-lg appearance-none text-gray-400">
+                    <option value="">Select Bank</option>
+                    <!-- <option>ICICI Bank</option>
+                    <option>Canara Bank</option> -->
                 </select>
+                <span id="bankError" class="text-red-500 text-sm absolute left-0 -bottom-5"></span>
                 <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                     <i class="fas fa-chevron-down text-gray-400"></i>
                 </div>
             </div>
         </div>
-        <div class="mb-5">
+        <div class="mb-8">
             <label class="block text-500 mb-2 text-[#0069B8]">Select State</label>
             <div class="relative">
-                <select class="w-full p-3 border border-blue-400 rounded-lg appearance-none">
-                    <option>Karnataka</option>
+                <select id="state" class="w-full p-3 border border-blue-400 rounded-lg appearance-none text-gray-400">
+                    <option value="">Select State</option>
+                    <!-- <option>Karnataka</option>
                     <option>Kerala</option>
-                    <option>Mumbai</option>
+                    <option>Mumbai</option> -->
                 </select>
+                <span id="stateError" class="text-red-500 text-sm absolute left-0 -bottom-5"></span>
                 <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                     <i class="fas fa-chevron-down text-gray-400"></i>
                 </div>
             </div>        
         </div>
-        <div class="mb-5">
+        <div class="mb-8">
             <label class="block text-500 mb-2 text-[#0069B8]">Select City</label>
             <div class="relative">
-                <select class="w-full p-3 border border-blue-400 rounded-lg appearance-none">
-                    <option>Bangalore</option>
+                <select id="city" class="w-full p-3 border border-blue-400 rounded-lg appearance-none text-gray-400">
+                    <option value="">Select City</option>
+                    <!-- <option>Bangalore</option>
                     <option>Mysore</option>
-                    <option>Mandya</option>
+                    <option>Mandya</option> -->
                 </select>
+                <span id="cityError" class="text-red-500 text-sm absolute left-0 -bottom-5"></span>
                 <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                     <i class="fas fa-chevron-down text-gray-400"></i>
                 </div>
             </div>        
         </div>
-        <div class="mb-5">
+        <div class="mb-8">
             <label class="block text-500 mb-2 text-[#0069B8]">Select Branch</label>
             <div class="relative">
-                <select class="w-full p-3 border border-blue-400 rounded-lg appearance-none">
-                    <option>Marathalli</option>
+                <select id="branch" class="w-full p-3 border border-blue-400 rounded-lg appearance-none text-gray-400">
+                    <option value="">Select Branch</option>
+                    <!-- <option>Marathalli</option>
                     <option>Electronic City</option>
-                    <option>Madiwala</option>
+                    <option>Madiwala</option> -->
                 </select>
+                <span id="branchError" class="text-red-500 text-sm absolute left-0 -bottom-5"></span>
                 <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                     <i class="fas fa-chevron-down text-gray-400"></i>
                 </div>
             </div>        
         </div>
-        <button class="mt-5 w-full p-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 bg-gradient-to-b from-[#56AEFF] to-[#00509B]">Confirm</button>
+        <button id="confirmBtn" class="mt-2 w-full p-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 bg-gradient-to-b from-[#56AEFF] to-[#00509B]">Confirm</button>
     </div>
-  </div>
+  </div> 
 </body>
 </html>

@@ -6,10 +6,11 @@
         <script src="https://cdn.tailwindcss.com"></script>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
         <link href="assets/css/global.css" rel="stylesheet">
+        <script src="assets/js/kyc.js"></script>
     </head>
     <body>
         <div class="max-w-md mx-auto bg-[#F7FAFE] rounded-b-lg shadow-md overflow-hidden h-screen">
-            <div class="bg-[#0069B8] text-white rounded-b-[30px]  justify-start items-start">
+            <div class="bg-[#0069B8] text-white rounded-b-[30px] justify-start items-start pb-10">
                 <div class="flex items-center justify-between">
                     <div class="w-1/6">
                         <button class="px-2 left-0"> 
@@ -21,11 +22,12 @@
                     </div>
                     <div class="w-12"></div>
                 </div>
-                <div>
-                    <h2 class="text-3xl font-regular mt-2 pt-4 pb-6 flex items-center justify-center">Verify Your KYC <br> With DigiLocker</h2>
-                </div>
             </div>
             <div class="p-6">
+                <form id="kycForm">
+                <div>
+                    <h2 class="text-2xl font-regular pb-6 flex items-center justify-center text-[#0069B8]">Verify Your KYC <br> With DigiLocker</h2>
+                </div>
                 <div class="py-1 px-5">
                     <p class="text-[#0069B8] flex items-start justify-start text-[20px] mb-4">Ensure Your Aadhaar Is Linked With<br> DigiLocker Before Proceeding.</p>
                 </div>
@@ -53,13 +55,14 @@
                 </div>
                 <div class="py-1 px-5">
                     <div class="flex items-start mt-6">
-                        <input class="form-checkbox text-blue-600 mt-1" type="checkbox"/>
-                        <p class="text-gray-600 ml-2 text-[12px]">By proceeding, you agree to Poonawalla Fincorp's and Buddy Loan's
+                        <input class="form-checkbox text-blue-600 mt-1" id="acknowledgeKyc" type="checkbox"/>
+                        <p class="text-gray-600 ml-2 text-[12px]" id="acknowledgeTextKyc">By proceeding, you agree to Poonawalla Fincorp's and Buddy Loan's
                             <a class="text-blue-600 underline" href="#">Terms &amp; Conditions</a>and<a class="text-blue-600 underline" href="#">Privacy Policy</a>.
                         </p>
                     </div>
                 </div>
-                <button class="mt-10 w-full p-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 bg-gradient-to-b from-[#56AEFF] to-[#00509B]">Continue</button>
+                <button type="submit" class="mt-10 w-full p-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 bg-gradient-to-b from-[#56AEFF] to-[#00509B]">Continue</button>
+            </form>
             </div> 
         </div>
  </body>

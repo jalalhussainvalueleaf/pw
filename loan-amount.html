@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <link href="assets/css/global.css" rel="stylesheet">
+    <script src="assets/js/loanAmount.js"></script>
   </head>
 <body>
   <div class="max-w-md mx-auto bg-[#F7FAFE] rounded-b-lg shadow-md overflow-hidden">
@@ -27,9 +28,10 @@
       </div>
     </div>
     <div class="p-6">
+      <form id="loanForm">
       <div class="border shadow-md p-4 rounded-lg text-center bg-white">
-        <h3 id="loanAmount" class="text-3xl font-bold text-[#0069B8]">₹2,20,000</h3>
-        <input id="loanSlider" class="text-[#0069B8] w-full appearance-none h-2 rounded-lg bg-gradient-to-r from-[#56AEFF] to-[#00509B]" type="range" min="50000" max="500000" value="220000"/>
+        <h3 id="loanAmount" class="text-3xl font-bold text-[#0069B8]"></h3>
+        <input id="loanSlider" class="w-full" type="range" min="50000" max="500000" value="64000" disabled/>
         <div class="flex justify-between text-gray-500 mt-2">
           <span>₹50,000</span><span>₹5,00,000</span>
         </div>
@@ -55,80 +57,45 @@
       <div class="bg-[#FFFFFF] p-4 rounded-lg mt-2 border">
         <div class="accordion">
           <div class="flex justify-between items-center p-2 bg-white rounded-lg shadow-md mb-2 cursor-pointer border border-[#0069B8]" onclick="toggleAccordion('amountDetails')">
-            <span class="text-[#0069B8] text-[10px] font-regular">Amount You Get</span>
-            <span class="font-semibold text-[#0069B8] text-[15px] font-regular ml-[30px]">₹2,12,361</span>
-            <i class="fas fa-chevron-down text-[#0069B8] text-[20px] font-regular"></i>
+            <span class="text-[#0069B8] text-[12px] font-semibold">Amount You Get</span>
+            <span class="font-semibold text-[#0069B8] text-[15px] font-semibold ml-[80px]" id="amountGet"></span>
+            <i class="fas fa-chevron-down text-[#0069B8] text-[16px] font-regular"></i>
           </div>
-          <div id="amountDetails" class="hidden p-2 bg-white rounded-lg shadow-md">
-            Detailed amount breakdown goes here...
-          </div>
+          <div id="amountDetails" class="hidden p-3 bg-gray-50 rounded-lg border border-[#0069B8]">
+            <p class="text-[#999999] text-[12px] flex justify-stretch">Total Loan Amount <span class="font-medium ml-[55px]" id="totalLoanAmount"></span></p>
+            <div class="flex items-center justify-stretch mt-2">
+              <p class="text-[#999999] text-[12px]" id="processingText"></p> 
+              <p class="text-[#999999] text-[12px] font-medium ml-[10px]" id="processingFee"></p>
+            </div>
+            <p class="text-[#999999] text-[12px] flex justify-stretch mt-2">Stamp Duty Charges <span class="font-medium ml-[50px]">-₹500</span></p>          </div>
         </div>
-        <div class="accordion">
-          <div class="flex justify-between items-center p-2 bg-white rounded-lg shadow-md mb-2 cursor-pointer border border-[#0069B8]" onclick="toggleAccordion('totalAmount')">
-            <span class="text-[#0069B8] text-[10px] font-regular">Total Amount you Repay</span>
-            <span class="font-semibold text-[#0069B8] text-[15px] font-regular flex items-center">₹2,12,361</span>
-            <i class="fas fa-chevron-down text-[#0069B8] text-[20px] font-regular"></i>
+        <div class="accordion mt-2">
+          <div class="flex justify-between items-center p-2 bg-white rounded-lg shadow-md mb-2 cursor-pointer border border-[#0069B8]" onclick="toggleAccordion('amountYouGet')">
+            <span class="text-[#0069B8] text-[12px] font-semibold">Total Amount you Repay</span>
+            <span class="font-semibold text-[#0069B8] text-[15px] font-semibold ml-[30px]" id="amountRepay"></span>
+            <i class="fas fa-chevron-down text-[#0069B8] text-[16px] font-regular"></i>
           </div>
-          <div id="totalAmount" class="hidden p-2 bg-white rounded-lg shadow-md">
-            Detailed amount breakdown goes here...
+          <div id="amountYouGet" class="hidden p-3 bg-gray-50 rounded-lg border border-[#0069B8]">
+            <p class="text-[#999999] text-[12px] flex justify-stretch">Total Loan Amount <span class="font-medium ml-[55px]" id="loanAmountTotal"></span></p>
+            <div class="flex items-center justify-stretch mt-2">
+              <p class="text-[#999999] text-[12px]" id="interest"></p> 
+              <p class="text-[#999999] text-[12px] font-medium ml-[45px]" id="interestFee"></p>
+            </div>
+            <p class="text-[#999999] text-[10px] flex justify-stretch" id="CalculateMonths">(36 Months x ₹2,753)</p>
           </div>
         </div>
       </div>
       <div class="bg-[#FFFFFF] p-4 rounded-lg mt-2 border">
-        <p class="text-[11.5px] text-[#0069B8] flex justify-between items-center">*Calculated on Annualised Interest Rate of 26% on Reducing Balance.</p>
-        <p class="text-[11.5px] text-[#0069B8] flex justify-between items-center ml-2">Broken Period Interest Will be Charged as per the EMI Payments.</p>
+        <p class="text-[10px] text-[#0069B8] flex justify-between items-center">*Calculated on Annualised Interest Rate of 30% on Reducing Balance.</p>
+        <p class="text-[10px] text-[#0069B8] flex justify-between items-center ml-2">Broken Period Interest Will be Charged as per the EMI Payments.</p>
       </div>
       <div class="flex items-start mt-3 ml-1">
-        <input type="checkbox" class="w-4 h-4 text-[#0069B8]  border border-[#0069B8] rounded">
-        <label class="ml-2 text-[12px]">I hereby confirm that the payment of the loan is for personal use</label>
+        <input type="checkbox" id="acknowledge" class="w-4 h-4 text-[#0069B8]  border border-[#0069B8] rounded">
+        <label class="ml-2 text-[12px]" id="acknowledgeText">I hereby confirm that the payment of the loan is for personal use</label>
       </div>
-      <button class="w-full bg-[#0069B8] text-white text-lg font-semibold py-3 rounded-lg mt-6 bg-gradient-to-b from-[#56AEFF] to-[#00509B]">
-        Accept & Continue with KYC
-      </button>
+      <button type="submit" class="w-full bg-[#0069B8] text-white text-lg font-semibold py-3 rounded-lg mt-6 bg-gradient-to-b from-[#56AEFF] to-[#00509B]">Accept & Continue with KYC</button>
+    </form>
     </div>
   </div>
-  <script>
-    const loanSlider = document.getElementById("loanSlider");
-    const loanAmount = document.getElementById("loanAmount");
-    const emiOptionsContainer = document.getElementById("emiOptions");
-    
-    const emiOptions = [
-      { tenure: 36, emi: 2753, total: 8864 },
-      { tenure: 24, emi: 1836, total: 5910 },
-      { tenure: 12, emi: 917, total: 2954 }
-    ];
-    
-    function updateLoanAmount() {
-      loanAmount.textContent = `₹${parseInt(loanSlider.value).toLocaleString()}`;
-    }
-    function renderEmiOptions() {
-      emiOptionsContainer.innerHTML = "";
-      emiOptions.forEach((option, index) => {
-        emiOptionsContainer.innerHTML += `
-          <div class="relative flex items-center justify-between p-2 bg-white rounded-lg shadow-md mb-2 border ${index === 0 ? 'border-[#0069B8]' : ''}">
-              <div class="flex items-center w-1/3">
-                <input type="radio" name="tenure" class="form-radio text-[#0069B8]" ${index === 0 ? 'checked' : ''}/>
-                <span class="ml-2 text-[#0069B8] font-semibold ml-[25px]">${option.tenure}</span>
-              </div>
-              <div class="text-center w-1/3">
-                <p class="text-[#0069B8] font-semibold">₹${option.emi.toLocaleString()}</p>
-              </div>
-              <div class="text-right w-1/3">
-                <p class="text-[#0069B8] font-semibold mr-[25px]">₹${option.total.toLocaleString()}</p>
-              </div>
-                <div class="text-right w-[90px] absolute top-[-14px] right-0">
-                   ${index === 0 ? '<p class="bg-[#0069B8] text-white rounded-[4px] px-2 py-[3px] text-xs font-semibold w-[70px]">Top Pick</p>':''}
-                </div>
-          </div>`;
-      });
-    }
-    
-    function toggleAccordion(id) {
-      document.getElementById(id).classList.toggle("hidden");
-    }
-    
-    loanSlider.addEventListener("input", updateLoanAmount);
-    document.addEventListener("DOMContentLoaded", renderEmiOptions);
-  </script>
 </body>
 </html>

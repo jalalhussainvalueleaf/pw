@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
         videoStream = await navigator.mediaDevices.getUserMedia({video: true});
         videoElement.srcObject = videoStream;
         videoElement.autoplay = true;
-        videoElement.className = "w-full max-w-md rounded-lg shadow-md";
+        videoElement.className = "rounded-lg shadow-md";
         cameraContainer.innerHTML = "";
         cameraContainer.appendChild(videoElement);
       }
@@ -40,6 +40,9 @@ document.addEventListener("DOMContentLoaded", () => {
       permissionGranted = false;
     }
   };
+const updateAndSendPayload = () => {
+  window.location.href = "upload-selfie.html";
+};
 
   // Capture Image
   const captureImage = () => {
@@ -62,7 +65,10 @@ document.addEventListener("DOMContentLoaded", () => {
     imageContainer.innerHTML = "";
     imageContainer.appendChild(imgElement);
     captureButton.innerHTML = "Submit Your Picture";
-    captureButton.classList.add("bg-green-600");
+    captureButton.classList.add("custom-gradient");
+    if(imageData !== ""){
+      updateAndSendPayload();
+    }
   };
 
   // Send Image to Server (Mock API)

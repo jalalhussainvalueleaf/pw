@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Transfer amount</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+        <link href="assets/css/global.css" rel="stylesheet">
+    </head>
+    <body class="bg-gray-100">
+        <div class="max-w-md mx-auto bg-primary rounded-lg shadow-md overflow-hidden h-screen">
+            <div class="flex items-center justify-between">
+                <div class="w-1/6">
+                  <button class="px-2 left-0"> 
+                    <img src="assets/resources/arrow.svg" alt="arrow Logo" class="w-auto"/>
+                  </button>
+                </div>
+                <div class="w-1/2 pt-4">
+                  <img src="assets/resources/logPW.png" alt="Company Logo" class="w-auto h-14"/>
+                </div>
+                <div class="w-12"></div>
+            </div>
+            <div  class="h-screen flex flex-col items-center justify-center space-y-4">
+                <div class="flex items-center justify-center mb-10">
+                    <img src="assets/resources/verifyDetailes.svg" alt="verify Detailes">
+                </div>      
+                <div class="py-1 mt-20 px-4">
+                    <h1 class="text-center text-semibold text-[#000000] text-2xl">Verifying Your Details</h1>
+                    <p class="text-center text-sm text-[#B5BBC2] mt-3 leading-6">This could take up to 30 seconds</p>
+                </div>
+                <div class="text-white rounded-t-[30px]">
+                    <div class="loader mx-auto"></div>
+                </div>
+            </div>
+            
+        </div>
+    </body>
+</html>
