@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <link href="assets/css/global.css" rel="stylesheet">
+    <script src="assets/js/additionalDetailes.js"></script>
   </head>
 <body>
   <div class="max-w-md mx-auto bg-[#F7FAFE] rounded-b-lg shadow-md overflow-hidden h-screen">
@@ -34,41 +35,37 @@
             <h2 class="text-[18px] font-regular text-[#0069B8] mt-6 ml-[40px]">Help us with your additional details</h2>
           </div>
           <div class="py-4 px-10">
-            <form>
+            <form id="user-form">
               <div class="mb-4 py-2">
                 <label class="block text-[#0069B8] mb-2" for="company-name">Enter Company Name</label>
                 <div class="relative">
-                  <select id="company-name" class="w-full p-4 py-2 border border-gray-300 rounded-lg text-gray-400 appearance-none">
-                    <option>Reliance Industries Limited</option>
-                    <option>Tata Consultancy Services</option>
-                    <option>ValueLeaf</option>
-                    <option>Wipro</option>
-                  </select>
+                  <input type="text" id="search-company" placeholder="Search company..." class="w-full p-4 py-2 rounded-lg appearance-none border border-[#0069B8] text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500">
                   <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                     <i class="fas fa-chevron-down text-gray-400"></i>
-                  </div>
+                  </div> 
                 </div>
               </div>
               <div class="mb-4 py-2">
                 <label class="block text-[#0069B8] mb-2" for="marital-status">Select Your Marital Status</label>
                 <div class="relative">
                   <select id="marital-status" class="w-full p-4 py-2 rounded-lg appearance-none border border-[#0069B8] text-gray-400">
-                    <option>Married</option>
-                    <option>Single</option>
-                    <option>Divorced</option>
-                    <option>Widowed</option>
+                    <option value="">Select an option</option>
+                    <option value="Married">Married</option>
+                    <option value="Single">Single</option>
+                    <option value="Divorced">Divorced</option>
+                    <option value="Widowed">Widowed</option>
                   </select>
                   <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                     <i class="fas fa-chevron-down text-gray-400"></i>
                   </div>
                 </div>
               </div>
-              <div class="mb-4 py-2">
+              <div class="mb-4 py-2 relative">
                 <label class="block text-[#0069B8] mb-2" for="father-name">Enter Your Father’s Name</label>
                 <input type="text" id="father-name" placeholder="Father’s Name" class="w-full px-4 py-2 rounded-lg border border-[#0069B8]">
               </div>
             </form>
-            <button class="mt-20 w-full p-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 bg-gradient-to-b from-[#56AEFF] to-[#00509B]">Proceed</button>
+            <button id="submit-btn" class="mt-20 w-full p-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 bg-gradient-to-b from-[#56AEFF] to-[#00509B]">Proceed</button>
           </div>
       </div>
   </div>
