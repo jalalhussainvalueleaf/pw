@@ -6,7 +6,7 @@
     <title>Verifying KYC</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-    <link href="global.css" rel="stylesheet">
+    <link href="assets/css/global.css" rel="stylesheet">
   </head>
 <body>
   <!-- Upload Box -->
@@ -15,11 +15,11 @@
     <div class="flex items-center justify-between">
       <div class="w-1/6">
         <button class="px-2 left-0"> 
-          <img src="arrow.svg" alt="Company Logo" class="w-auto"/>
+          <img src="assets/resources/arrow.svg" alt="arrow Logo" class="w-auto"/>
         </button>
       </div>
       <div class="w-1/2 pt-4">
-        <img src="logPW.png" alt="Company Logo" class="w-auto h-14"/>
+        <img src="assets/resources/logPW.png" alt="Company Logo" class="w-auto h-14"/>
       </div>
       <div class="w-12"></div>
     </div>
@@ -36,36 +36,41 @@
         </div>
         <!-- Countdown Timer -->
         <div class="ring-2 ring-gray-200 shadow-md rounded-full size-20 flex items-center justify-center flex-col mt-[50px]" id="timerOff">
-          <span class="text-4xl font-semibold text-[#0069B8]" id="countdown">5</span>
+          <span class="text-4xl font-semibold text-[#0069B8]" id="countdown">0</span>
           <small class="text-[#0069B8]">sec</small>
         </div>
       </div>
     </div>
     <div class="flex items-center justify-center content h-auto bottom-0">
-      <img src="verify-kyc.svg" alt="Upload" class="w-auto justify-center mt-10"/>
+      <img src="assets/resources/verify-kyc.svg" alt="Upload" class="w-auto justify-center mt-10"/>
       <div id="result" class="text-center text-gray-800 mt-4"></div>
     </div>
   </div>
   <script>
-    let timeLeft = 1; // Set countdown time
+    let timeLeft = 0; // Start countdown from 0
     let countdownElem = document.getElementById("countdown");
     let timerOff = document.getElementById("timerOff");
     let checkDone = document.getElementById("checkDone");
 
     function startCountdown() {
-      let timer = setInterval(() => {
-        if (timeLeft < 8) {
-          timeLeft++;
-          countdownElem.textContent = timeLeft;
-        } else {
-          clearInterval(timer);
-          timerOff.classList.add("hidden"); // Hide countdown
-          checkDone.classList.remove("hidden"); // Show animation
-        }
-      }, 1000);
-    }
-    // Start countdown when page loads
-    window.onload = startCountdown;
+        let timer = setInterval(() => {
+          if (timeLeft <= 3) {
+            countdownElem.textContent = timeLeft;
+            timeLeft++;
+          } else {
+            clearInterval(timer);
+            timerOff.classList.add("hidden"); // Hide countdown
+            checkDone.classList.remove("hidden"); // Show animation
+      
+            // Redirect to another page after 1 second
+            setTimeout(() => {
+             window.location.href = "additional-details.html"; // Change this to your target page
+            }, 1000);
+         }
+        }, 1000);
+      }
+      // Start countdown when page loads
+      window.onload = startCountdown; 
   </script>
 
 </body>

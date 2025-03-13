@@ -6,7 +6,8 @@
         <title>Bank Account</title>
         <script src="https://cdn.tailwindcss.com"></script>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-        <link href="global.css" rel="stylesheet">
+        <link href="assets/css/global.css" rel="stylesheet">
+        <script src="assets/js/bankAccount.js"></script>
     </head>
 <body>
     <div class="max-w-md mx-auto bg-[#F7FAFE] rounded-b-lg shadow-md overflow-hidden h-screen">
@@ -14,11 +15,11 @@
             <div class="flex items-center justify-between">
                 <div class="w-1/6">
                     <button class="px-2 left-0"> 
-                        <img src="arrow.svg" alt="Company Logo" class="w-auto brightness-0 invert"/>
+                        <img src="assets/resources/arrow.svg" alt="arrow Logo" class="w-auto brightness-0 invert"/>
                     </button>
                 </div>
                 <div class="w-1/2 pt-4">
-                    <img src="logoHeader.png" alt="Company Logo" class="w-auto h-14"/>
+                    <img src="assets/resources/logoHeader.png" alt="Company Logo" class="w-auto h-14"/>
                 </div>
                 <div class="w-12"></div>
             </div>
@@ -29,13 +30,15 @@
     <div class="p-10">
         <p class="text-center font-medium text-[#0069B8]">Make sure the bank account has <br>
             Internet Banking or Debit Card</p>
-        <div class="mb-4 mt-10">
+        <div class="mb-8 mt-10">
             <label class="block text-500 mb-2 text-[#0069B8]">Select Your Bank</label>
             <div class="relative">
-                <select class="w-full p-3 border border-blue-400 rounded-lg appearance-none">
+                <select id="bankSelect" class="w-full p-3 border border-blue-400 rounded-lg appearance-none">
+                    <option value="">Select Bank</option>
                     <option>ICICI Bank</option>
                     <option>Canara Bank</option>
                 </select>
+                <span id="bankError" class="text-red-500 text-sm absolute left-0 -bottom-5"></span>
                 <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                     <i class="fas fa-chevron-down text-gray-400"></i>
                 </div>
@@ -43,16 +46,18 @@
         </div>
         <div class="mb-5">
             <label class="block text-500 mb-2 text-[#0069B8]">Enter Your Account Number</label>
-            <input type="text" placeholder="Eg. 12345678901234" class="w-full p-3 border border-blue-400 rounded-lg">
+            <input id="accountNumber" type="number" placeholder="Eg. 12345678901234" class="w-full p-3 border border-blue-400 rounded-lg">
+            <span id="accountError" class="text-red-500 text-sm"></span>
         </div>
         <div class="mb-4">
             <label class="block text-500 mb-2 text-[#0069B8]">Enter Your IFSC Code</label>
                 <div class="flex items-center justify-center p-1 border border-blue-400  border border-blue-400 rounded-lg">
-                <input type="text" placeholder="Eg. ICIC0000357" class="flex-grow px-4 py-2 text-gray-500 outline-none">            
-                <button class="bg-white text-[#0069B8] font-medium px-4 py-2">Find IFSC</button>
+                <input id="ifscCode" type="text" placeholder="Eg. ICIC0000357" class="flex-grow px-4 py-2 text-gray-500 outline-none" oninput="validateIFSC(this)">            
+                <button id="findIfsc" class="bg-white text-[#0069B8] font-medium px-4 py-2">Find IFSC</button>
             </div>
+            <span id="ifscError" class="text-red-500 text-sm"></span>
         </div>
-        <button class="mt-[80px] w-full p-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 bg-gradient-to-b from-[#56AEFF] to-[#00509B]">Add Bank Account</button>
+        <button id="addBankAccount" class="mt-[80px] w-full p-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 bg-gradient-to-b from-[#56AEFF] to-[#00509B]">Add Bank Account</button>
     </div>
   </div>
 </body>

@@ -11,18 +11,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap" rel="stylesheet">
-
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>  
-  <style>
-    body { font-family: "Poppins", sans-serif; }
-  </style>
+  <script src="assets/css/global.css"></script>
 </head>
 <body class="bg-gray-100 flex justify-center items-center h-screen relative">
   <!-- Black Overlay (Initially Hidden) -->
   <div class="max-w-md mx-auto bg-white shadow-md rounded-md space-y-4 relative z-20 p-6">
     <!-- Logo -->
     <div class="flex items-center justify-center w-full p-4">
-      <img src="logoPW.png" alt="Company Logo" class="w-auto h-12"/>
+      <img src="assets/resources/logPW.png" alt="Company Logo" class="w-auto h-12"/>
     </div>
 
     <!-- Camera Mask (Before Permission) -->
@@ -61,7 +58,7 @@
           <p class="text-center text-gray-400">
             Allow Buddy Loan to access this device’s precise location?
           </p>
-          <img src="map.svg" alt="Map" class="w-auto h-32"/>
+          <img src="assets/resources/map.svg" alt="Map" class="w-auto h-32"/>
         </div>
         <div class="flex flex-col space-y-4">
           <button id="allowLocation" class="bg-[#0069B8] text-white py-2 px-4 rounded">While using the app</button>
@@ -72,13 +69,13 @@
     
     <!-- Button to Trigger Location Modal -->
     <div class="text-center">
-            <img src="location.svg" alt="Company Logo" class="w-full h-full"/>
+            <img src="assets/resources/location.svg" alt="Company Logo" class="w-full h-full"/>
       <!-- <button id="getLocationBtn" class="bg-[#0069B8] text-white py-2 px-4 rounded">Get Location</button> -->
     </div>
 
     <div id="result" class="text-center text-gray-800 mt-4"></div>
   </div>
 
-<script src="location.js"></script>
+<script src="assets/js/location.js"></script>
 </body>
 </html>

@@ -61,3 +61,38 @@ input:checked + .slider {
 input:checked + .slider:before {
    transform: translateX(20px);
 }
+
+#loanSlider {
+   appearance: none;
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   border-radius: 5px;
+ }
+ .custom-gradient {
+   background: linear-gradient(to bottom, #56AEFF, #00509B);
+ }
+ 
+ #loanSlider:disabled {
+   background-color: #0069B8 !important;
+   opacity: 1;
+ }
+ 
+ #loanSlider:disabled::-webkit-slider-runnable-track {
+   background: #0069B8;
+   height: 7px;
+   border-radius: 5px;
+ }
+ 
+ #loanSlider:disabled::-webkit-slider-thumb {
+   -webkit-appearance: none;
+   appearance: none;
+   width: 15px;
+   height: 15px;
+   border-radius: 50%;
+   background: #0069B8;
+   cursor: not-allowed;
+   margin-top: -4px;
+ }
+
+ 
+ 
